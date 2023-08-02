@@ -31,7 +31,7 @@ r2 = r2_score(y_test, y_pred)
 print("Mean Squared Error:", mse)
 print("R-squared:", r2)
 
-# Save the ElasticNet model to a .pt file
+# Save the ElasticNet model to a onnx file
 model_path = "elastic_example/1/model.onnx"
 initial_type = [('input_0', FloatTensorType([None, n_features]))]
 final_type = [('output_0', FloatTensorType([ 1 ]))]
