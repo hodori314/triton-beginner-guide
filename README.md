@@ -151,7 +151,7 @@ First, create docker network.
 docker create network triton_network
 ```
 
-Second, add network to containers.
+Second, add network to containers(both server and client).
 If container is already created, then
 ```
 docker network connect triton_network {already created container name}
@@ -186,6 +186,26 @@ Then you can change triton API url specified as `IPv4Address`.
 ```python
 # httpclient.InferenceServerClient(url="localhost:8000")
 httpclient.InferenceServerClient(url="172.180.9.3:8000")
+```
+
+### How to upgrade cmake version
+For compiling triton C++ library, you need at least cmake 3.17.
+Follow this steps to upgrade your cmake version.
+```
+$ sudo apt purge cmake
+$ cd home
+$ wget https://github.com/Kitware/CMake/releases/download/v3.27.1/cmake-3.27.1.tar.gz
+$ tar -xvzf cmake-3.27.1.tar.gz
+$ sudo apt install qt5-default
+$ sudo apt-get install build-essential
+$ sudo apt install libssl-dev
+$ cd cmake-3.27.1
+$ ./bootstrap
+$ make
+$ sudo make install
+$ vi ~/.bashrc # add this 'PATH=$PATH:/usr/local/bin/' at the end of the .bashrc file.
+$ source ~/.bashrc
+$ cmake --version
 ```
 
 ## Reference
