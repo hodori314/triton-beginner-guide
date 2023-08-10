@@ -6,10 +6,10 @@ project(MyProgram)
 add_executable(myprogram client.cpp)
 
 # add library directory 
-link_directories(/home/libtriton/lib)
+link_directories(/path/to/your/triton/lib)
 
 # search all .a and .so files within LIBRARIES folder
-file(GLOB LIBRARIES /path/to/your/lib/*.a /path/to/your/lib/*.so)
+file(GLOB LIBRARIES /path/to/your/triton/lib/*.a /path/to/your/triton/lib/*.so)
 
 # link library
 target_link_libraries(myprogram PRIVATE ${LIBRARIES})
