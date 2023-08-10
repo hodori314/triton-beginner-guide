@@ -27,7 +27,7 @@ $ source init.sh
 official docs: [(sklearn)elastic-net](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.ElasticNet.html)
 
 We train elastic net using scikit-learn packages. However, one thing that you have to notice is that you cannot directly save and use sklearn model for triton server.
-Therefore, you must convert scikit-learn packages to torch[sk2torch](https://github.com/unixpickle/sk2torch/) or onnx model[sk2onnx](https://github.com/onnx/sklearn-onnx).
+Therefore, you must convert scikit-learn packages to torch [[sk2torch](https://github.com/unixpickle/sk2torch/)] or onnx model [[sk2onnx](https://github.com/onnx/sklearn-onnx)].
 In this project, we use onnx model.
 
 ```
@@ -50,7 +50,7 @@ elastic_example
 ```
 
 `model.onnx` is a model file for inference. (You can make this file using `python train.py`.)  
-`config.pbtxt` contains meta-data for input and output tensor and its infernce model. You can construct your own `config.pbtxt` by following guide links.  
+`config.pbtxt` contains meta-data for input and output tensor and its infernce model. You can construct your own `config.pbtxt` by following guide links. [[data_type](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/user_guide/model_configuration.html#datatypes)] [[dims](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/user_guide/model_configuration.html#shape-tensors)]
 
 ```
 name: "{model name specified in model_repository/}"
@@ -72,9 +72,6 @@ output [
     }
 ]
 ```
-
-[data_type](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/user_guide/model_configuration.html#datatypes)
-[dims](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/user_guide/model_configuration.html#shape-tensors)
 
 ### Run Triton Server
 
