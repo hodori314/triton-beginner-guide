@@ -35,7 +35,6 @@ $ python train.py
 ```
 
 To apply for your project, you need to pay attention to the `initial_type` and `final_type` in `train.py`.
-You can find 
 
 ## Upload traind model into Triton Server
 
